@@ -1,0 +1,629 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %} Products-home {% endblock title %}
+
+{% block stylelink %}
+<!-- <link rel="stylesheet" href="{% static 'css/image-slider-category.css' %}"/> -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'css1/style.css'  %}" />
+<link rel="stylesheet" href="{% static 'css1/lightslider.css'  %}">
+<script type="text/javascript" src="{% static 'js1/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/lightslider.js' %}"></script>
+{%endblock stylelink %}
+<script src="https://kit.fontawesome.com/b99e675b6e.js"> </script>
+
+{%block style%}
+
+{% endblock style %}
+
+{% block filter %}
+<div class="dropdown mx-5 my-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Filter
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <a class="dropdown-item" href="/ascending_products_home">Lowest to Highest</a>
+            <a class="dropdown-item" href="/descending_products_home">Highest to Lowest</a>
+            <form method='get'>
+                  <h6 class="card-header">Price</h6>
+                  <div class="list-group list-group-flush">
+                        <li class="list-group-item">
+                              <input type="range" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                                    min={{minMaxPrice.price__min}} id="rangeInput" oninput="maxPrice.value=this.value"
+                                    name='filter' />
+                        </li>
+                        <li class="list-group-item">
+                              Max: <input type="number" value="{{minMaxPrice.price__min}}"
+                                    max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} class="form-control"
+                                    id="maxPrice" onkeyup="rangeInput.value=this.value" id="maxPrice" />
+                              <button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+                        </li>
+                  </div>
+      </div>
+      </form>
+</div>
+</div>
+</div>
+
+{% endblock filter %}
+
+{% block body %}
+
+<div class="my-5 ml-5">
+      <div class="py-5">
+      </div>
+      <ul class="nav nav-tabs">
+
+
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="kitchen_appliances">Kitchen Appliances</a>
+            </li>
+            <li class="nav-item">  
+                  <a class="nav-link text-dark" href="heater_fan_cooler">Heaters, Fans & Coolers</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="lighting">Lighting</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="hardware_tools">Hardware Tools</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="washing_machine">Washing Machines</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="regrigerator">Refrigerators</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="air_purifiers">Air Purifiers</a>
+            </li>
+      </ul>
+</div>
+
+
+<!-- home-category -->
+<br>
+<div class="detail">
+      <h6>Shop by category</h6>
+</div>
+<!--swiper slider-->
+<div class="swiper-container1">
+      <div class="swiper-wrapper1">
+            <!--slide 1-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                        <!-- <p class="time">New</p> -->
+                        <a href='television'>
+                        <div class="img-box1">
+                              <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img20/TVs/BAU/Feb21/670x700_Televisions.jpg"
+                                    style="width:120px;height:180px;">
+                        </div></a>
+                        <h6>Television</h6>
+                  </div>
+            </div>
+            <!--slide 2-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1"><a href="ait_conditioner">
+                        <div class="img-box1">
+                              <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Home/LA/Reshma_LA/SUMMER_FEST-2021/Halo_Shop_by_category_-_AC.jpg"
+                                    style="width:120px;height:180px;">
+                        </div></a>
+                        <h6>Air Conditioners</h6>
+                  </div>
+            </div>
+            <!--slide 3-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                        <a href="tv">
+                        <div class="img-box1">
+                              <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img20/TVs/BAU/Feb21/Premium_TVs_670x700.jpg"
+                                    style="width:120px;height:180px;">
+                        </div></a>
+                        <h6>Premium TVs</h6>
+                  </div>
+            </div>
+            <!--slide 4-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1"><a href="refrigerator">
+                        <div class="img-box1">
+                              <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Home/LA/Reshma_LA/SUMMER_FEST-2021/Halo_Shop_by_category_-_RF.jpg"
+                                    style="width:120px;height:180px;">
+                        </div></a>
+                        <h6>Refrigerators</h6>
+                  </div>
+            </div>
+            <!--slide 6-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                        <a href="air_cooler">
+                        <div class="img-box1">
+                              <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img20/Smallappliances/Adhoc/COOLERS-HALO-2.jpg"
+                                    style="width:120px;height:180px;">
+                        </div></a>
+                        <h6>Air coolers</h6>
+                  </div>
+            </div>
+            <!--slide 7-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                              <a  href="microwave">
+                        <div class="img-box1">
+                              <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Home/LA/CatTiles/new/Updated/musruthi_2018-02-15T06-26_39a358_1099842_670x700-4._CB502759367_.jpg"
+                                    style="width:120px;height:180px;">
+                        </div></a>
+                        <h6>Microwaves</h6>
+                  </div>
+            </div>
+            
+            <!--slide 8-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                        <a href="kitchen_appliances">
+                        <div class="img-box1">
+                              <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Home/LA/Reshma_LA/SUMMER_FEST-2021/Shop-by-category---Chimney.jpg"
+                                    style="width:120px;height:180px;">
+                        </div></a>
+                        <h6>Kichen Appliances</h6>
+                  </div>
+            </div>
+      </div>
+</div>
+</div>
+</div>
+
+<br>
+<!-- Best TV's slider -->
+<!--slider 1 bags------------------------------------------>
+<div class="detail">
+      <h5>Best TV's for you</h5>
+</div>
+<!--swiper slider-->
+<div class="swiper-container">
+      <div class="swiper-wrapper">
+            {% for i in product %}
+            <!--slide 1-------------------------------------->
+            <div class="swiper-slide">
+                  <div class="slider-box">
+                        <div class="img-box">
+                              <!-- <img src="{{i.img_url1}}"> -->
+                              <img src="https://rukminim1.flixcart.com/image/312/312/kq6yefk0/television/n/w/v/l32m5-al-mi-original-imag4967mvqvpvgp.jpeg?q=70" 
+                              style="height: 100px;">
+                        </div>
+                        <h4 class="detail my-3">Mi 4A PRO 80 cm (32 inch) 
+
+                              <p> Price : 12000</p>
+                        </h4>
+                  </div>
+            </div>
+            {%endfor %}
+      </div>
+</div>
+</div>
+<!-- Best Refrigerator -->
+<!--slider 1 bags------------------------------------------>
+<div class="detail">
+      <h5>Refregerators</h5>
+</div>
+<!--swiper slider-->
+<div class="swiper-container">
+      <div class="swiper-wrapper">
+            {% for i in product %}
+            <!--slide 1-------------------------------------->
+            <div class="swiper-slide">
+                  <div class="slider-box">
+                        <div class="img-box">
+                              <img src="https://rukminim1.flixcart.com/image/312/312/kmmcrrk0/refrigerator-new/c/s/c/cdsd522190ms-2-2021-candy-original-imagfhgwxugyyhns.jpeg?q=70">
+                        </div>
+                        <h4 class="detail my-3">CANDY 190 L Direct Cool Single Door 2 Star Refrigerator
+                              <p> Price : 12000</p>
+                        </h4>
+                  </div>
+            </div>
+            {%endfor %}
+      </div>
+</div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/script.js' %}"></script>
+
+
+
+
+
+
+<script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+
+<script type="text/javascript" src="{% static 'js1/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+
+
+
+
+
+<div class="container my-5">
+      <div class="py-5">
+      </div>
+      <ul class="nav nav-tabs">
+            <li class="nav-item">
+                  <a class="nav-link active" href="{{sub_cat}}">{{sub_cat}}</a>
+            </li>
+            </li>
+
+            <div class="dropdown mx-5 mb-3">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filter
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="btn dropdown-item" onclick="filterSelection('all')"> <a>Show all</a></button>
+                        <form class="btn dropdown-item" method='get'> <button value="price_1" ,
+                                    name="{{sub_cat}}_price_range"> <a>under ₹{{price_1}}</a></button></form>
+                        <form class="btn dropdown-item" method='get'> <button value="price_2" ,
+                                    name="{{sub_cat}}_price_range"><a>₹{{price_1}} - ₹{{price_2}}</a></button></form>
+                        <form class="btn dropdown-item" method='get'> <button value="price_3" ,
+                                    name="{{sub_cat}}_price_range"><a>₹{{price_2}} - ₹{{price_3}}</a></button></form>
+                        <form class="btn dropdown-item" method='get'> <button value="price_4" ,
+                                    name="{{sub_cat}}_price_range"><a>over ₹{{price_3}}</a></button></form>
+                        <form method='get'>
+                              <h6 class="card-header">Price</h6>
+                              <div class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                          <input type="range" value="{{minMaxPrice.price__min}}"
+                                                max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}}
+                                                id="rangeInput" oninput="maxPrice.value=this.value" name='filter' />
+
+                                    </li>
+                                    <li class="list-group-item">
+                                          Max: <input type="number" value="{{minMaxPrice.price__min}}"
+                                                max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}}
+                                                class="form-control" id="maxPrice" onkeyup="rangeInput.value=this.value"
+                                                id="maxPrice" />
+                                          <button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+                                    </li>
+                              </div>
+                  </div>
+                  </form>
+            </div>
+            
+
+</div>
+</li>
+</ul>
+</div>
+
+<div class="ml-5">
+
+      <ul class="nav nav-tabs">
+            <li class="nav-item" >
+                  <a class="nav-link text-dark" href="kitchen_appliances" >Kitchen Appliances</a>
+            </li>
+            <li class="nav-item">  
+                  <a class="nav-link text-dark" href="heater_fan_cooler">Heaters, Fans & Coolers</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="lighting">Lighting</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="hardware_tools">Hardware Tools</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="washing_machine">Washing Machines</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="regrigerator">Refrigerators</a>
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link text-dark" href="air_purifiers">Air Purifiers</a>
+            </li>
+      </ul>
+</div>
+<div class="container ml-5 my-5">
+      <div id="myBtnContainer">
+            <form class="btn {{active1}}" method='get'> <button value="price_1" , name="{{sub_cat}}_price_range" style="font-size: 13px;"> under
+                        ₹{{price_1}}</button></form>
+            <form class="btn {{active2}}" method='get'> <button value="price_2" , name="{{sub_cat}}_price_range"style="font-size: 13px;">₹{{price_1}} -
+                        ₹{{price_2}}</button></form>
+            <form class="btn {{active3}}" method='get'> <button value="price_3" , name="{{sub_cat}}_price_range"style="font-size: 13px;">₹{{price_2}} -
+                        ₹{{price_3}}</button></form>
+            <form class="btn {{active4}}" method='get'> <button value="price_4" , name="{{sub_cat}}_price_range"style="font-size: 13px;">Over
+                        ₹{{price_3}}</button></form>
+
+      </div>
+</div>
+
+
+
+{% if price_range_filter %}
+<div class="filter_range" id="filter_range" style="display: block;">
+      <div class="container my-5">
+            <div class="row">
+                  {% for i in price_range_filter %}
+                  <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:18rem;">
+                        <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"
+                                    style="width:{{img_width}}px;height:{{img_height}};"></a>
+                        <div class="card-body">
+                              <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                          href="products/{{i.id}}">
+                                          {{i.product_name}}</a></p>
+                              <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark'
+                                          href="products/{{i.id}}">{{i.desc}} </a></p>
+                              <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                              <!-- <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p> -->
+                        </div>
+                  </div>
+                  {%endfor%}
+            </div>
+      </div>
+</div>
+<div class="container my-5">
+      <nav aria-label="...">
+            <ul class="pagination">
+                  <li class="page-item ">
+                        {% if prev_filter %}
+                        <a class="page-link"
+                              href="/{{sub_cat}}?filter={{filtered_price}}&page={{prev_filter}}">Previous</a>
+                        {% else %}
+                        {% endif %}
+                  </li>
+                  {% for x in page_len_filter %}
+                  <li class="page-item"><a class="page-link"
+                              href="/{{sub_cat}}?filter={{filtered_price}}&page={{x}}">{{x}}</a></li>
+                  {% endfor %}
+                  {% if nxt_filter %}
+                  <a class="page-link" href="/{{sub_cat}}?filter={{filtered_price}}&page={{nxt_filter}}">Next</a>
+                  {% else %}
+                  {% endif %}
+                  </li>
+            </ul>
+      </nav>
+</div>
+
+{% elif brand_price_range_filter %}
+<div class="filter_range" id="filter_range" style="display: block;">
+      <div class="container my-5">
+            <div class="row">
+                  {% for i in brand_price_range_filter %}
+                  <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:20rem;">
+                        <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"
+                                    style="width:{{img_width}}px;height:{{img_height}};"></a>
+                        <div class="card-body">
+                              <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                          href="products/{{i.id}}">
+                                          {{i.product_name}}</a></p>
+                              <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark'
+                                          href="products/{{i.id}}">{{i.desc}} </a></p>
+                              <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                              <!-- <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p> -->
+                        </div>
+                  </div>
+                  {%endfor%}
+            </div>
+      </div>
+</div>
+<div class="container my-5">
+      <nav aria-label="...">
+            <ul class="pagination">
+                  <li class="page-item ">
+                        {% if prev_filter %}
+                        <a class="page-link"
+                              href="/{{brand_url}}?filter={{filtered_price}}&page={{prev_filter}}">Previous</a>
+                        {% else %}
+                        {% endif %}
+                  </li>
+                  {% for x in page_len_filter %}
+                  <li class="page-item"><a class="page-link"
+                              href="/{{brand_url}}?filter={{filtered_price}}&page={{x}}">{{x}}</a></li>
+                  {% endfor %}
+                  {% if nxt_filter %}
+                  <a class="page-link" href="/{{brand_url}}?filter={{filtered_price}}&page={{nxt_filter}}">Next</a>
+                  {% else %}
+                  {% endif %}
+                  </li>
+            </ul>
+      </nav>
+</div>
+
+{%elif product%}
+
+<div class="filterDiv all">
+      <div class="container my-5">
+            <div class="row">
+                  {% for i in product %}
+                  <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:18rem;">
+                        <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"
+                                    style="width:{{img_width}}px;height:{{img_height}}px;"></a>
+                        <div class="card-body my-3">
+                              <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                          href="products/{{i.id}}">
+                                          {{i.product_name}}</a></p>
+                              <p class="card-text text-center"><a style="text-decoration:none;" class='text-da    rk'
+                                          href="products/{{i.id}}">{{i.desc}} </a></p>
+                              <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                              <!-- <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p> -->
+                        </div>
+                  </div>
+                  {%endfor%}
+            </div>
+      </div>
+      {%if value is none%}
+      <div class="container my-5">
+            <nav aria-label="...">
+                  <ul class="pagination">
+                        <li class="page-item ">
+                              {% if prev %}
+                              <a class="page-link" href="/{{sub_cat}}?page={{prev}}">Previous</a>
+                              {% else %}
+                              {% endif %}
+                        </li>
+                        {% for x in page_len %}
+                        <li class="page-item"><a class="page-link" href="/{{sub_cat}}?page={{x}}">{{x}}</a></li>
+                        {% endfor %}
+                        {% if nxt %}
+                        <a class="page-link" href="/{{sub_cat}}?page={{nxt}}">Next</a>
+                        {% else %}
+                        {% endif %}
+                        </li>
+                  </ul>
+            </nav>
+      </div>
+      {% else %}
+
+      <div class="container my-5">
+            <nav aria-label="...">
+                  <ul class="pagination">
+                        <li class="page-item ">
+                              {% if prev %}
+                              <a class="page-link"
+                                    href="{{sub_cat}}?{{sub_cat}}_price_range={{value}}&page={{prev}}">Previous</a>
+                              {% else %}
+                              {% endif %}
+                        </li>
+                        {% for x in page_len %}
+                        <li class="page-item"><a class="page-link"
+                                    href="/{{sub_cat}}?{{sub_cat}}_price_range={{value}}&page={{x}}">{{x}}</a></li>
+                        {% endfor %}
+                        {% if nxt %}
+                        <a class="page-link" href="/{{sub_cat}}?{{sub_cat}}_price_range={{value}}&page={{nxt}}">Next</a>
+                        {% else %}
+                        {% endif %}
+                        </li>
+                  </ul>
+            </nav>
+      </div>
+
+      {%endif%}
+</div>
+</div>
+
+
+
+
+
+{%elif brand_product%}
+<div class="filterDiv all">
+      <div class="container my-5">
+            <div class="row">
+                  {% for i in brand_product %}
+                  <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:20rem;">
+                        <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"
+                                    style="width:{{img_width}}px;height:{{img_height}}px;"></a>
+                        <div class="card-body my-3">
+                              <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                          href="products/{{i.id}}">
+                                          {{i.product_name}}</a></p>
+                              <p class="card-text text-center"><a style="text-decoration:none;" class='text-da    rk'
+                                          href="products/{{i.id}}">{{i.desc}} </a></p>
+                              <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                              <!-- <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p> -->
+                        </div>
+                  </div>
+                  {%endfor%}
+            </div>
+      </div>
+      {%if value is none%}
+      <div class="container my-5">
+            <nav aria-label="...">
+                  <ul class="pagination">
+                        <li class="page-item ">
+                              {% if prev %}
+                              <a class="page-link" href="/{{brand_url}}?page={{prev}}">Previous</a>
+                              {% else %}
+                              {% endif %}
+                        </li>
+                        {% for x in page_len %}
+                        <li class="page-item"><a class="page-link" href="/{{brand_url}}?page={{x}}">{{x}}</a></li>
+                        {% endfor %}
+                        {% if nxt %}
+                        <a class="page-link" href="/{{brand_url}}?page={{nxt}}">Next</a>
+                        {% else %}
+                        {% endif %}
+                        </li>
+                  </ul>
+            </nav>
+      </div>
+      {% else %}
+
+      <div class="container my-5">
+            <nav aria-label="...">
+                  <ul class="pagination">
+                        <li class="page-item ">
+                              {% if prev %}
+                              <a class="page-link"
+                                    href="{{brand_url}}?{{sub_cat}}_price_range={{value}}&page={{prev}}">Previous</a>
+                              {% else %}
+                              {% endif %}
+                        </li>
+                        {% for x in page_len %}
+                        <li class="page-item"><a class="page-link"
+                                    href="/{{brand_url}}?{{sub_cat}}_price_range={{value}}&page={{x}}">{{x}}</a></li>
+                        {% endfor %}
+                        {% if nxt %}
+                        <a class="page-link"
+                              href="/{{brand_url}}?{{sub_cat}}_price_range={{value}}&page={{nxt}}">Next</a>
+                        {% else %}
+                        {% endif %}
+                        </li>
+                  </ul>
+            </nav>
+      </div>
+
+      {%endif%}
+      {%endif%}
+
+
+<script>
+//       var btnContainer = document.getElementById("myBtnContainer");
+// console.log(btnContainer)
+
+// var btns = btnContainer.getElementsByClassName("myBtnContainer");
+
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+//     var current = document.getElementsByClassName("active");
+//     current[0].className = current[0].className.replace(" active", "");
+//     this.className += " active";
+//   });
+// }
+
+
+// var btnContainer = document.getElementById("myBtnContainer");
+
+// Get all buttons with class="btn" inside the container
+// var btns = btnContainer.getElementsByClassName("btn");
+
+// Loop through the buttons and add the active class to the current/clicked button
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+//     var current = document.getElementsByClassName("active");
+//     current[0].className = current[0].className.replace(" active", "");
+//     this.className += " active";
+//   });
+// }
+
+$(document).ready(function(){
+      $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+            localStorage.setItem('activeTab', $(e.target).attr('href'));
+      });
+      var activeTab = localStorage.getItem('activeTab');
+      if(activeTab){
+            $('#myTab a[href="' + activeTab + '"]').tab('show');
+      }
+});
+
+
+</script>
+      {% endblock body %}

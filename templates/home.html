@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %} Products-home {% endblock title %}
+
+{% block stylelink %}
+<!-- <link rel="stylesheet" href="{% static 'css/image-slider-category.css' %}"/> -->
+
+
+<link rel="stylesheet" href="{% static 'css1/style.css'  %}" />
+<link rel="stylesheet" href="{% static 'css1/lightslider.css'  %}">
+<script type="text/javascript" src="{% static 'js1/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/lightslider.js' %}"></script>
+{%endblock stylelink %}
+<script src="https://kit.fontawesome.com/b99e675b6e.js"> </script>
+
+{%block style%}
+
+{% endblock style %}
+
+{% block filter %}
+<div class="dropdown mx-5 my-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Filter
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <a class="dropdown-item" href="/ascending_products_home">Lowest to Highest</a>
+            <a class="dropdown-item" href="/descending_products_home">Highest to Lowest</a>
+            <form method='get'>
+                  <h6 class="card-header">Price</h6>
+                  <div class="list-group list-group-flush">
+                        <li class="list-group-item">
+                              <input type="range" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                                    min={{minMaxPrice.price__min}} id="rangeInput" oninput="maxPrice.value=this.value"
+                                    name='filter' />
+                        </li>
+                        <li class="list-group-item">
+                              Max: <input type="number" value="{{minMaxPrice.price__min}}"
+                                    max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} class="form-control"
+                                    id="maxPrice" onkeyup="rangeInput.value=this.value" id="maxPrice" />
+                              <button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+                        </li>
+                  </div>
+      </div>
+      </form>
+</div>
+</div>
+</div>
+
+{% endblock filter %}
+
+{% block body %}
+
+
+
+
+<!-- home-category -->
+<br>
+<div class="detail">
+  <h6>Home and kitches store</h6>
+    </div>
+<!--swiper slider-->
+<div class="swiper-container1">
+  <div class="swiper-wrapper1">
+        <!--slide 1-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <!-- <p class="time">New</p> -->
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Hnk/SBC_New/png-jpg._SS300_QL85_.png"
+                                style="width:120px;height:120px;">
+                    </div>
+                   <h6>Kithces & appliances</h6>
+              </div>
+        </div>
+ <!--slide 2-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Hnk/SBC_New/png-jpg._SS300_QL85_.png"
+                                style="width:120px;height:120px;">
+                    </div>
+                   <h6>Decor</h6>
+              </div>
+        </div>
+        <!--slide 3-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Hnk/SBC_New/8._SS300_QL85_.jpg"
+                                style="width:120px;height:120px;">
+                    </div>
+            <h6> Cookware & dining</h6>
+              </div>
+        </div>
+        <!--slide 4-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Hnk/SBC_New/1._SS300_QL85_.jpg"
+                                style="width:120px;height:120px;">
+                    </div>
+                <h6>Garden & outdoor</h6>
+              </div>
+        </div>
+        <!--slide 5-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Hnk/SBC_New/6._SS300_QL85_.jpg"
+                                style="width:120px;height:120px;">
+                    </div>
+                   <h6>Tools</h6>
+              </div>
+        </div>
+        <!--slide 6-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Hnk/SBC_New/7._SS300_QL85_.jpg"
+                                style="width:120px;height:120px;">
+                    </div>
+                    <h6>Fitness & sports</h6>
+              </div>
+        </div>
+       <!--slide 7-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Hnk/SBC_New/5._SS300_QL85_.jpg"
+                                style="width:120px;height:120px;">
+                    </div>
+                    <h6>Car & bike parts </h6>
+              </div>
+        </div>
+        <!--slide 8-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/OHL_HMT/Hnk/SBC_New/4._SS300_QL85_.jpg"
+                                style="width:120px;height:120px;">
+                    </div>
+                    <h6>Tool, instruments & more </h6>
+              </div>
+        </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Women's Collection -->
+
+<br>
+<div class="detail">
+  <h5>Women's Collection</h5>
+    </div>
+<!--swiper slider-->
+<div class="swiper-container1">
+  <div class="swiper-wrapper1">
+        <!--slide 1-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <!-- <p class="time">New</p> -->
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/June_WRS/Event/Revised_creatives/Women_SBC/Women-SBC_01._SY530_QL85_.jpg"
+                                style="width:120px;height:180px;">
+                    </div>
+                    
+              </div>
+        </div>
+ <!--slide 2-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/June_WRS/Event/Revised_creatives/Women_SBC/Women-SBC_02._SY530_QL85_.jpg"
+                                style="width:120px;height:180px;">
+                    </div>
+              </div>
+        </div>
+        <!--slide 3-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/June_WRS/Event/Revised_creatives/Women_SBC/Beauty_03._SY530_QL85_.jpg"
+                                style="width:120px;height:180px;">
+                    </div>
+              </div>
+        </div>
+        <!--slide 4-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/June_WRS/Event/Revised_creatives/Women_SBC/Women-SBC_04._SY530_QL85_.jpg"
+                                style="width:120px;height:180px;">
+                    </div>
+              </div>
+        </div>
+        <!--slide 5-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/June_WRS/Event/Revised_creatives/Women_SBC/Women-SBC_05._SY530_QL85_.jpg"
+                                style="width:120px;height:180px;">
+                    </div>
+              </div>
+        </div>
+        <!--slide 6-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/June_WRS/Event/Revised_creatives/Women_SBC/Women-SBC_06._SY530_QL85_.jpg"
+                                style="width:120px;height:180px;">
+                    </div>
+              </div>
+        </div>
+       <!--slide 7-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/June_WRS/Event/Revised_creatives/Women_SBC/Women-SBC_06._SY530_QL85_.jpg"
+                                style="width:120px;height:180px;">
+                    </div>
+              </div>
+        </div>
+        <!--slide 8-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/Fashion/June_WRS/Event/Revised_creatives/Women_SBC/Women-SBC_06._SY530_QL85_.jpg"
+                                style="width:120px;height:180px;">
+                    </div></div>
+        </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+<script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/script.js' %}"></script>
+
+
+
+
+
+
+<script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+
+<script type="text/javascript" src="{% static 'js1/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+
+
+
+
+
+
+{% endblock body %}

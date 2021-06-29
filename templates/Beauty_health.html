@@ -1,0 +1,180 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<script src="https://kit.fontawesome.com/8b7c482f52.js" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style2.css">
+<style type="text/css">
+            * {
+        /*background-color: #A9A9A9;*/
+        font-family:Franklin Gothic Medium
+
+       
+    }
+    {
+     pagination {text-align: center;
+    }
+   /* }
+    .card-text{
+    font-size:15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}*/
+</style>
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+ -->
+<link rel="icon" href="static/title_img.png" type="image/png">
+        <title>Hey, I'm Tushar</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <div class="tushar">
+        <nav class="navbar navbar-expand-lg py-5 navbar-light bg- light">
+            <a class="navbar-brand" href="index.html">Incredible shoping ! </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto" mt=3>
+                    <li class="nav-item active">
+                        <a class="navbar-brand" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="#">CV</a>
+                    </li>   
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="Projects.html">Projects</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="container">
+    
+                <form class="d-flex" id="navbutton">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search" >
+              <button class="btn btn-outline-success"  type="submit" > Search </button>
+            </form>
+<section class="my-5">
+  <div class="py-5">
+  </div>
+<ul class="nav nav-tabs">
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Category</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="mobile">Mobiles and Laptops</a>
+      <a class="dropdown-item" href="wears_shoes">Wears and shoes</a>
+      <a class="dropdown-item" href="beauty_health">Beauty and Health</a>
+      <a class="dropdown-item" href=""></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Beauty and Health</a>
+  </li>
+  <div class="dropdown-divider"></div>
+    </div>
+  </li>
+  </ul>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+            <img src="{% static '/media//mi_mobile.jpg' %}" class="padded card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Xiaomi Mi 11 Summary</h5>
+                <p class="card-text text-center">6.81-inch touchscreen display with a resolution of 1440x3200 pixels at a pixel density </p>
+                 <p class="card-text text-center text-success"> ₹13,499 Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released 2021, January 01 </small></p>
+                
+            </div>
+        </div>
+
+        <div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+            <img src="{% static '/media//mi_mobile.jpg' %}" class="padded card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Xiaomi Mi 11 Summary</h5>
+                <p class="card-text text-center">6.81-inch touchscreen display with a resolution of 1440x3200 pixels at a pixel density .</p>
+                 <p class="card-text text-center text-success"> ₹13,499 Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released 2021, January 01 </small> </p>
+            </div>
+        </div>
+        <div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+            <img src="{% static '/media//mi_mobile.jpg' %}" class="padded card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Xiaomi Mi 11 Summary</h5>
+                <p class="card-text text-center">6.81-inch touchscreen display with a resolution of 1440x3200 pixels at a pixel density </p>
+                 <p class="card-text text-center text-success"> ₹13,499 Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released 2021, January 01</small></p>
+              
+            </div>
+        </div>
+
+ <div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+            <img src="{% static '/media//mi_mobile.jpg' %}" class="padded card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Xiaomi Mi 11 Summary</h5>
+                <p class="card-text text-center">6.81-inch touchscreen display with a resolution of 1440x3200 pixels at a pixel density </p>
+                <p class="card-text text-center text-success"> ₹13,499 Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released 2021, January 01</small></p>
+              
+            </div>
+        </div>
+
+ <div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+            <img src="{% static '/media//mi_mobile.jpg' %}" class="padded card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Xiaomi Mi 11 Summary</h5>
+                <p class="card-text text-center">6.81-inch touchscreen display with a resolution of 1440x3200 pixels at a pixel density </p>
+                 <p class="card-text text-center text-success"> ₹13,499 Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released 2021, January 01</small></p>
+              
+            </div>
+        </div>
+
+ <div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+            <img src="{% static '/media//mi_mobile.jpg' %}" class="padded card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Xiaomi Mi 11 Summary</h5>
+                <p class="card-text text-center">6.81-inch touchscreen display with a resolution of 1440x3200 pixels at a pixel density </p>
+                 <p class="card-text text-center text-success"> ₹13,499 Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released 2021, January 01</small></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+</div>
+<div class="container my-5">
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active">
+      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+</body>
+</html>

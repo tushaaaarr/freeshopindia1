@@ -1,0 +1,462 @@
+{% extends 'base.html' %}
+{%load static%}\
+<!-- {load static ""} -->
+{% block title %} Electronics Gadgets {% endblock title %}
+{% block filter %}   
+    {% endblock filter %}
+    {% block body %}
+
+    <br>
+  
+    <!-- Popular Mobile Phones As Of Today -->
+    <!--slider 1 bags------------------------------------------>
+    <div class="detail">
+      <h5>Popular Mobile Phones As Of June 21, 2021</h5>
+        </div>
+        <!--swiper slider-->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">     
+                {% for i in electronics %}
+                <!--slide 1-------------------------------------->
+              <div class="swiper-slide">
+              <div class="slider-box">
+        <div class="img-box">
+        <img src="{{i.img_url1}}">
+        </div>
+        <h4 class="detail my-3">{{i.product_name}}
+        <p> Price : 12000</p>
+      </h4>
+    </div>   
+    </div>
+              {%endfor %}
+              </div>         
+        </div>
+        </div>
+        
+    
+    
+
+<br>
+<!-- Top Electronics  -->
+
+<div class="heading">
+  <h5>Top searched electronics </h5>
+</div>
+<!--swiper slider-->
+<div class="swiper-container1">
+  <div class="swiper-wrapper1">
+        <!--slide 1-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <!-- <p class="time">New</p> -->  <a href="laptop">
+
+                    <div class="img-box1">
+                        
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/revamp/BG/xcm_banners_05_bg_v2_390x498_in-en._CB657835886_.jpg"
+                                style="width:120px;height:140px;">
+                    </div>
+                    <h6 class="text-dark">Laptops </h6> </a>
+              </div>
+        </div>
+ <!--slide 2-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1"><a href="headphone">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/revamp/BG/xcm_banners_07_bg_v2_390x498_in-en._CB657835897_.jpg"
+                                style="width:120px;height:140px;">
+                    </div></a>
+                    <h6> Headphones </h6>
+              </div>
+        </div>
+        <!--slide 3-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <a href="smartwatch">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/revamp/BG/xcm_banners_01_bg_v2_390x498_in-en._CB657835152_.jpg"
+                                style="width:120px;height:140px;">
+                    </div></a>
+              <h6>Smartwatches </h6>
+              </div>
+        </div>
+        <!--slide 4-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1"><a href="camera">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/revamp/BG/xcm_banners_08_bg_v2_390x498_in-en._CB657835895_.jpg"
+                                style="width:120px;height:140px;">
+                    </div>
+                    <h6> Cameras </h6></a>
+              </div>
+        </div>
+        <!--slide 5-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+               <a href="printer">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/revamp/BG/xcm_banners_06_bg_v2_390x498_in-en._CB657835876_.jpg"
+                                style="width:120px;height:140px;">
+                    </div></a>
+                    <h6>Printer</h6> 
+              </div>
+        </div>
+        <!--slide 6-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <a href="home_theatre">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/revamp/BG/xcm_banners_09_bg_v2_390x498_in-en._CB657835898_.jpg"
+                                style="width:120px;height:140px;">
+                    </div></a>
+                    <h6>Home theatre </h6>
+              </div>
+        </div>
+       <!--slide 7-------------------------------------->
+       <div class="swiper-slide1">
+        <div class="slider-box1">
+              <a href="computer_accessories">
+              <div class="img-box1">
+                    <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/revamp/BG/xcm_banners_04_bg_v2_390x498_in-en._CB657835901_.jpg"
+                          style="width:120px;height:140px;">
+              </div></a>
+              <h6>Computer accessories </h6>
+        </div>
+  </div>
+        <!--slide 8-------------------------------------->
+        <div class="swiper-slide1">
+          <div class="slider-box1">
+          <a href="router">
+                <div class="img-box1">
+                      <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/revamp/BG/xcm_banners_03_bg_v2_390x498_in-en._CB657835872_.jpg"
+                            style="width:120px;height:140px;">
+                </div></a>
+                <h6>Router </h6>
+          </div>
+    </div>
+    
+  </div>
+</div>
+</div>
+</div>
+  
+
+<!-- Computer categories  -->
+<br>
+    <!--swiper slider-->
+    <div class="swiper-container1">
+      <div class="swiper-wrapper1">
+            <!--slide 1-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                       <a href="tablet_accessories">
+                        <div class="img-box1">
+                              <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/PC/Computers/Revamp/SBC/xcm_banners_01_sbc_v4_390x498_in-en._CB657694058_.jpg"
+                                    style="width:120px;height:140px;">
+                        </div></a>
+                        <h6>Tablet accessories </h6>
+                  </div>
+            </div>
+     <!--slide 2-------------------------------------->
+     <div class="swiper-slide1">
+      <div class="slider-box1">
+            <a href="graphics_card">
+            <div class="img-box1">
+                  <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/PC/Computers/Revamp/SBC/xcm_banners_02_sbc_v4_390x498_in-en._CB657694062_.jpg"
+                        style="width:120px;height:140px;">
+            </div></a>
+      <h6>Graphic tablets
+    </h6>
+      </div>
+</div>
+         
+            <!--slide 3-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                        <a href="gaming_accessories">
+                        <div class="img-box1">
+                              <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/PC/Computers/Revamp/SBC/xcm_banners_03_sbc_v4_390x498_in-en._CB657694058_.jpg"
+                                    style="width:120px;height:140px;">
+                        </div></a>
+                        <h6> Gaming accessories
+                        </h6>
+                  </div>
+            </div>
+            <!--slide 4-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                        <a href="electronics_component">
+                        <div class="img-box1">
+                              <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/PC/Computers/Revamp/SBC/xcm_banners_04_sbc_v4_390x498_in-en._CB657694048_.jpg"
+                                    style="width:120px;height:140px;">
+                        </div></a>
+                        <h6> Components </h6>
+                  </div>
+            </div>
+            <!--slide 5-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                        <a href="computer_ssd">
+                        <div class="img-box1">
+                              <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/PC/Computers/Revamp/SBC/xcm_banners_05_sbc_v4_390x498_in-en._CB657694078_.jpg"
+                                    style="width:120px;height:140px;">
+                        </div></a>
+                        <h6>Internal SSDs
+                        </h6>
+                  </div>
+            </div>
+            <!--slide 6-------------------------------------->
+            <div class="swiper-slide1">
+                  <div class="slider-box1">
+                        <div class="img-box1">
+                              <a href="graphics_card">
+                              <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/PC/Computers/Revamp/SBC/xcm_banners_06_sbc_v4_390x498_in-en._CB657694055_.jpg"
+                                    style="width:120px;height:140px;">
+                        </div></a>
+                        <h6>Graphics cards </h6>
+                  </div>
+            </div>
+           <!--slide 7-------------------------------------->
+           <div class="swiper-slide1">
+            <div class="slider-box1">
+                  <a href="monitor">
+                  <div class="img-box1">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/PC/Computers/Revamp/SBC/xcm_banners_06_sbc_v1_564x564_in-en._SS400_QL85_.jpg"
+                              style="width:120px;height:140px;">
+                  </div></a>
+                  <h6>Monitors </h6>
+            </div>
+      </div>
+            <!--slide 8-------------------------------------->
+            <div class="swiper-slide1">
+              <div class="slider-box1">
+                  <a href="router">
+                    <div class="img-box1">
+                          <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/PC/Computers/Revamp/SBC/xcm_banners_09_sbc_v1_564x564_in-en._SS400_QL85_.jpg"
+                                style="width:120px;height:140px;">
+                    </div></a>
+                    <h6>Networking </h6>
+              </div>
+        </div>
+
+      
+        <div class="swiper-slide1">
+          <div class="slider-box1">
+                <!-- <p class="time">New</p> -->
+                <a href="pen_drive">
+                <div class="img-box1">
+                      <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/Revamp/SBC/xcm_banners_13_sbc_v1_564x564_in-en._SY530_QL85_.jpg"
+                            style="width:120px;height:140px;">
+                </div></a>
+                <h6>Pen drives & memory cards
+                </h6>
+          </div>
+    </div>
+    <div class="swiper-slide1">
+      <div class="slider-box1">
+            <!-- <p class="time">New</p> -->
+            <div class="img-box1">
+                  <img src="https://images-na.ssl-images-amazon.com/images/G/31/img21/CEPC/Electronics/Revamp/SBC/xcm_banners_15_sbc_v1_564x564_in-en._SY530_QL85_.jpg"
+                        style="width:120px;height:140px;">
+            </div>
+            <h6>Speakers
+            </h6>
+      </div>
+</div>
+      
+      </div>  </div>
+
+      <div class="container my-5">
+        <div class="py-5">
+        </div>
+        <ul class="nav nav-tabs">
+           
+ 
+            <li class="nav-item">
+                <a class="nav-link active" href="electronics">electronics</a>
+            </li>
+                     <div class="dropdown mx-5 mb-3">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filter
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="btn dropdown-item" onclick="filterSelection('all')"> <a>Show all</a></button>
+                        <form class="btn dropdown-item" method='get'> <button value="price_1" ,
+                                    name="{{category}}_price_range"> <a>under ₹{{price_1}}</a></button></form>
+                        <form class="btn dropdown-item" method='get'> <button value="price_2" ,
+                                    name="{{category}}_price_range"><a>₹{{price_1}} - ₹{{price_2}}</a></button></form>
+                        <form class="btn dropdown-item" method='get'> <button value="price_3" ,
+                                    name="{{category}}_price_range"><a>₹{{price_2}} - ₹{{price_3}}</a></button></form>
+                        <form class="btn dropdown-item" method='get'> <button value="price_4" ,
+                                    name="{{category}}_price_range"><a>over ₹{{price_3}}</a></button></form>
+                        <form method='get'>
+                              <h6 class="card-header">Price</h6>
+                              <div class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                          <input type="range" value="{{minMaxPrice.price__min}}"
+                                                max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}}
+                                                id="rangeInput" oninput="maxPrice.value=this.value" name='filter' />
+
+                                    </li>
+                                    <li class="list-group-item">
+                                          Max: <input type="number" value="{{minMaxPrice.price__min}}"
+                                                max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}}
+                                                class="form-control" id="maxPrice" onkeyup="rangeInput.value=this.value"
+                                                id="maxPrice" />
+                                          <button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+                                    </li></div>                  </div>
+                  </form>
+            </div></div>
+</li>
+</ul>
+</div>
+
+<div class="container ml-5 my-5">
+      <div id="myBtnContainer">
+            <form class="btn {{active1}}" method='get'> <button value="price_1" , name="{{category}}_price_range" style="font-size: 13px;"> under
+                        ₹{{price_1}}</button></form>
+            <form class="btn {{active2}}" method='get'> <button value="price_2" , name="{{category}}_price_range"style="font-size: 13px;">₹{{price_1}} -
+                        ₹{{price_2}}</button></form>
+            <form class="btn {{active3}}" method='get'> <button value="price_3" , name="{{category}}_price_range"style="font-size: 13px;">₹{{price_2}} -
+                        ₹{{price_3}}</button></form>
+            <form class="btn {{active4}}" method='get'> <button value="price_4" , name="{{category}}_price_range"style="font-size: 13px;">Over
+                        ₹{{price_3}}</button></form>
+
+      </div>
+</div>
+
+{% if price_range_filter %}
+<div class="filter_range" id ="filter_range" style="display: block;">
+<div class="container my-5">
+<div class="row">
+      {% for i in price_range_filter %}
+      {%if i.sub_category == 'mobile'%}
+      <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:18rem;">
+            <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:100px;height:190px;"></a>
+
+            {%elif i.sub_category == 'laptop' %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:18rem;">
+                  <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:170px;height:100px;"></a>
+                  {%else%}
+                  <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:18rem;">
+<a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:120px;height:120px;"></a>
+
+                  {%endif%}
+          <div class="card-body">
+                  <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                              href="products/{{i.id}}">
+                              {{i.product_name}}</a></p>
+                  <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark'
+                              href="products/{{i.id}}">{{i.desc}} </a></p>
+                  <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                  <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+            </div>
+      </div>
+      {%endfor%}
+</div>
+</div>
+</div> 
+
+<div class="container my-5">
+<nav aria-label="...">
+      <ul class="pagination">
+            <li class="page-item ">
+                  {% if prev_filter %}
+                  <a class="page-link" href="/{{category}}?filter={{filtered_price}}&page={{prev_filter}}">Previous</a>
+                  {% else %}
+                  {% endif %}
+            </li>
+            {% for x in page_len_filter %}
+            <!-- <li class="page-item"><a class="page-link" href="/{{category}}?filter={{filtered_price}}&page={{x}}">{{x}}</a></li> -->
+            {% endfor %}
+            {% if nxt_filter %}
+            <a class="page-link" href="/{{category}}?filter={{filtered_price}}&page={{nxt_filter}}">Next</a>
+            {% else %}
+            {% endif %}
+            </li>
+      </ul>
+</nav>
+</div>
+
+{%else%}
+<div class="filterDiv all">
+<div class="container my-5">
+      <div class="row">
+            {% for i in product %}
+            {%if i.sub_category == 'mobile'%}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:18rem;">
+                  <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:100px;height:190px;"></a>
+
+                  {%elif i.sub_category == 'laptop' %}
+                  <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:18rem;">
+                        <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:170px;height:100px;"></a>
+                        {%else%}
+                        <div class="card mx-auto my-2 p-2 align-items-center" style="width: 15rem; height:18rem;">
+<a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:120px;height:120px;"></a>
+      
+                        {%endif%}
+                  
+                  <div class="card-body my-3">
+                        <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                    href="products/{{i.id}}">
+                                    {{i.product_name}}</a></p>
+                        <p class="card-text text-center"><a style="text-decoration:none;" class='text-da    rk'
+                                    href="products/{{i.id}}">{{i.desc}} </a></p>
+                        <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                        <!-- <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p> -->
+                  </div>
+            </div>
+            {%endfor%}
+      </div>
+</div>
+{%if value is none%}    
+<div class="container my-5">
+<nav aria-label="...">
+      <ul class="pagination">
+            <li class="page-item ">
+                  {% if prev %}
+                  <a class="page-link" href="/{{category}}?page={{prev}}">Previous</a>
+                  {% else %}
+                  {% endif %}
+            </li>
+            {% for x in page_len %}
+            <!-- <li class="page-item"><a class="page-link" href="/{{category}}?page={{x}}">{{x}}</a></li> -->
+            {% endfor %}
+            {% if nxt %}
+            <a class="page-link" href="/{{category}}?page={{nxt}}">Next</a>
+            {% else %}
+            {% endif %}
+            </li>
+      </ul>
+</nav>
+</div>
+{% else %}
+
+<div class="container my-5">
+<nav aria-label="...">
+      <ul class="pagination">
+            <li class="page-item ">
+                  {% if prev %}
+                  <a class="page-link" href="{{category}}?{{category}}_price_range={{value}}&page={{prev}}">Previous</a>
+                  {% else %}
+                  {% endif %}
+            </li>
+            {% for x in page_len %}
+            <!-- <li class="page-item"><a class="page-link" href="/{{category}}?{{category}}_price_range={{value}}&page={{x}}">{{x}}</a></li> -->
+            {% endfor %}
+            {% if nxt %}
+            <a class="page-link" href="/{{category}}?{{category}}_price_range={{value}}&page={{nxt}}">Next</a>
+            {% else %}
+            {% endif %}
+            </li>
+      </ul>
+</nav>
+</div>
+
+{%endif%}
+</div>
+</div>
+
+
+{%endif%}
+{% endblock body %}

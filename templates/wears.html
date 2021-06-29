@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %} wears  {% endblock title %}
+{% block filter %}
+ <div class="dropdown mx-5">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Filter
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <a class="dropdown-item" href="/ascending_products_wears">Lowest to Highest</a>
+        <a class="dropdown-item" href="/descending_products_wears">Highest to Lowest</a>
+        <form method='get'>
+          <h6 class="card-header">Price</h6>
+          <div class="list-group list-group-flush">
+            <li class="list-group-item">
+              <input type="range" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                min={{minMaxPrice.price__min}} id="rangeInput" oninput="maxPrice.value=this.value" name='filter' />
+
+            </li>
+            <li class="list-group-item">
+              Max: <input type="number" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                min={{minMaxPrice.price__min}} class="form-control" id="maxPrice" onkeyup="rangeInput.value=this.value"
+                id="maxPrice" />
+              <button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+            </li>
+          </div>
+      </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+{% endblock filter %}
+
+       {% block body%}
+       {% if wears %}
+            <section class="my-5">
+                <div class="py-5">           
+                <ul class="nav nav-tabs">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Category</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="electronics">Electronics</a>
+                            <a class="dropdown-item" href="wears">Wears</a>
+                            <a class="dropdown-item" href="shoes">Shoes</a>
+                            <a class="dropdown-item" href="beauty_health">Beauty and Health</a>
+                            <a class="dropdown-item" href=""></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Wears</a>
+                    </li>
+<a class="nav-link" href='wears_men'><button type="button" class="btn btn-outline-primary ">Men</button> </a>
+     <a class="nav-link" href='wears_women'><button type="button" class="btn btn-outline-primary ">Women</button> </a>
+        </div>
+        </li>
+        </ul>
+    </div>
+    {% elif wears_men%}
+      <section class="my-5">
+                <div class="py-5">           
+                <ul class="nav nav-tabs">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Category</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="electronics">Electronics</a>
+                            <a class="dropdown-item" href="wears">Wears</a>
+                            <a class="dropdown-item" href="shoes">Shoes</a>
+                            <a class="dropdown-item" href="beauty_health">Beauty and Health</a>
+                            <a class="dropdown-item" href=""></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="wears">Wears</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" href="wears_men">Mens</a>
+                    </li>
+
+     <a class="nav-link" href='wears_women'><button type="button" class="btn btn-outline-primary ">Women</button> </a>
+        </div>
+        </li>
+        </ul>
+    </div>
+    {% elif wears_women%}
+      <section class="my-5">
+                <div class="py-5">           
+                <ul class="nav nav-tabs">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Category</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="electronics">Electronics</a>
+                            <a class="dropdown-item" href="wears">Wears</a>
+                            <a class="dropdown-item" href="shoes">Shoes</a>
+                            <a class="dropdown-item" href="beauty_health">Beauty and Health</a>
+                            <a class="dropdown-item" href=""></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="wears">Wears</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" href="wears_women">Women</a>
+                    </li>
+
+     <a class="nav-link" href='wears_men'><button type="button" class="btn btn-outline-primary ">Men</button> </a>
+        </div>
+        </li>
+        </ul>
+    </div>
+    {% endif %}
+     {% if wears_men %}
+    <div class="container">
+        <div class="row">
+            {% for i in wears_men %}
+              <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+       <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:230px;height:250px;"
+            class="padded card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                    <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                </div>
+                </div>
+            {%endfor%}
+            </section>
+        </div>
+    </div>
+    <div class="container my-5">
+       <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item ">
+          {% if prev %}
+          <a class="page-link" href="/wears_men?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/wears_men?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/wears_men?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+        </li>
+      </ul>
+    </nav>
+    {% elif wears%}
+     <div class="container">
+        <div class="row">
+            {% for i in wears %}
+              <div class="card mx-auto my-2 p-2 align-items-center"  style="width: 25rem; height:32rem;">
+       <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:230px;height:250px;"
+            class="padded card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                    <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                </div>
+                </div>
+            {%endfor%}
+            </section>
+        </div>
+    </div>
+    <div class="container my-5">
+       <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item ">
+          {% if prev %}
+          <a class="page-link" href="/wears?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/wears?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/wears?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+        </li>
+      </ul>
+    </nav>
+    {% elif wears_women%}
+     <div class="container">
+        <div class="row">
+            {% for i in wears_women %}
+           <div class="card mx-auto my-2 p-2 align-items-center"  style="width: 25rem; height:32rem;">
+       <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:230px;height:250px;"
+            class="padded card-img-top" alt="..."></a>
+       
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                    <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                </div>
+                </div>
+            {%endfor%}
+            </section>
+        </div>
+    </div>
+    <div class="container my-5">
+       <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item ">
+          {% if prev %}
+          <a class="page-link" href="/wears_women?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/wears_women?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/wears_women?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+        </li>
+      </ul>
+    </nav>
+    {% endif %}
+    </div>
+    </div>
+{% endblock body %}

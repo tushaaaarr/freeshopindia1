@@ -1,0 +1,291 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
+ 
+ 
+</body>
+</html>
+
+
+{% load static %}
+<!doctype html>
+<html>
+<style>
+      .filterDiv {
+
+            display: none;
+      }
+
+      .show {
+            display: block;
+      }
+
+      .container {
+            margin-top: 20px;
+            overflow: hidden;
+      }
+
+      /* Style the buttons */
+      .btn {
+            border: none;
+            outline: none;
+            padding: 12px 16px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+      }
+
+      .btn:hover {
+            background-color: #ddd;
+      }
+
+      .btn.active {
+            background-color: #666;
+            color: white;
+      }
+</style>
+
+<head>
+      </head>
+      <body>
+            <div class="rangeslider">
+            <input id="slider1" type="range" value="" min="1" max="20" step="1" onchange="callFun(this.value)" />
+            <p>Value: <span id="demo"></span></p>
+
+      </div>
+
+
+      <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('under_5000')"> Under ₹5,000</button>
+            <button class="btn" onclick="filterSelection('5000_10000')"> ₹5,000 - ₹10,000</button>
+            <button class="btn" onclick="filterSelection('10000_20000')"> ₹10,000 - ₹20,000</button>
+            <button class="btn" onclick="filterSelection('over_20000')"> Over ₹20,000</button>
+      </div>
+      <div class="container">
+            <div class="row">
+
+
+                  <div class="filterDiv">
+                        {% for i in mobile %}
+                  <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                     <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:150px;height:250px;"></a>
+                        <div class="card-body">
+                              <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                          href="products/{{i.id}}">
+                                          {{i.product_name}}</a></p>
+                              <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark'
+                                          href="products/{{i.id}}">{{i.desc}} </a></p>
+                              <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                              <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                              </div>
+                  </div>
+                  {%endfor%}
+                  </div>
+                  
+            </div>
+
+
+
+          
+                        <div class="filterDiv under_5000">
+                              {% for i in price_under5000 %}
+                              <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                                 <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:150px;height:250px;"></a>
+                                    <div class="card-body">
+                                          <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                                      href="products/{{i.id}}">
+                                                      {{i.product_name}}</a></p>
+                                          <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark'
+                                                      href="products/{{i.id}}">{{i.desc}} </a></p>
+                                          <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                                          <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                                          </div>
+                              </div>
+                              {%endfor%}
+                        </div>
+                  </div>
+
+
+                              <div class="filterDiv 5000_10000">
+                                    {% for i in price_5000_to_10000 %}
+                                    <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                                       <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:150px;height:250px;"></a>
+                                          <div class="card-body">
+                                                <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                                            href="products/{{i.id}}">
+                                                            {{i.product_name}}</a></p>
+                                                <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark'
+                                                            href="products/{{i.id}}">{{i.desc}} </a></p>
+                                                <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                                                <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                                                </div>
+                                    </div>
+                                    {%endfor%}
+                              </div>
+                        </div>
+                  </div>
+
+                              <div class="filterDiv 10000_20000">
+                                    {% for i in price_10000_to_20000 %}
+                                    <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                                       <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:150px;height:250px;"></a>
+                                          <div class="card-body">
+                                                <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                                            href="products/{{i.id}}">
+                                                            {{i.product_name}}</a></p>
+                                                <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark'
+                                                            href="products/{{i.id}}">{{i.desc}} </a></p>
+                                                <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                                                <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                                                </div>
+                                    </div>
+                                    {%endfor%}
+                              </div>
+                        </div>
+
+                        <div class="filterDiv over_20000">
+                                          {% for i in mobile %}
+                                          <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                                             <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:150px;height:250px;"></a>
+                                                <div class="card-body">
+                                                      <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                                                  href="products/{{i.id}}">
+                                                                  {{i.product_name}}</a></p>
+                                                      <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark'
+                                                                  href="products/{{i.id}}">{{i.desc}} </a></p>
+                                                      <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                                                      <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                                                      </div>
+                                          </div>
+                                          {%endfor%}
+                                    </div>
+                              </div>
+
+
+                              <script>
+
+                                    // filterSelection("all")
+                                    // function filterSelection(c) {
+                                    //       var x, i;
+                                    //       x = document.getElementsByClassName("filterDiv");
+
+                                    //       if (c == "all") c = "";
+                                    //       for (i = 0; i < x.length; i++) {
+                                    //             w3RemoveClass(x[i], "show");
+                                    //       if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+                                    //       }
+                                    // }
+
+                                    // // Show filtered elements
+                                    // function w3AddClass(element, name) {
+                                    //       var i, arr1, arr2;
+                                    //       arr1 = element.className.split(" ");
+                                    //       arr2 = name.split(" ");
+                                    //       for (i = 0; i < arr2.length; i++) {
+                                    //             if (arr1.indexOf(arr2[i]) == -1) {
+                                    //                   element.className += " " + arr2[i];
+                                    //             }
+                                    //       }
+                                    // }
+
+                                    // // /ide elements that are not selected
+                                    // function w3RemoveClass(element, name) {
+                                    //       var i, arr1, arr2;
+                                    //       arr1 = element.className.split(" ");
+                                    //       arr2 = name.split(" ");
+                                    //       for (i = 0; i < arr2.length; i++) {
+                                    //             while (arr1.indexOf(arr2[i]) > -1) {
+                                    //                   arr1.splice(arr1.indexOf(arr2[i]), 1);
+                                    //             }
+                                    //       }
+                                    //       element.className = arr1.join(" ");
+                                    // }
+
+
+                                    // // Add active class to the current control button (highlight it)
+
+                                    // var btnContainer = document.getElementById("myBtnContainer");
+                                    // var btns = btnContainer.getElementsByClassName("btn");
+                                    // for (var i = 0; i < btns.length; i++) {
+                                    //       btns[i].addEventListener("click", function () {
+                                    //             var current = document.getElementsByClassName("active");
+                                    //             current[0].className = current[0].className.replace(" active", "");
+                                    //             this.className += " active";
+                                    //       });
+                                    // }
+
+  var output = document.getElementById("demo");
+
+  output.innerHTML = rangeslider.value;
+function callFun(value) {
+      console.log(value)
+}
+
+
+                              </script>
+
+                              <!-- swiper  slider end-->
+
+                              <script type="text/javascript" src="{% static 'js/swiper2.min.js' %}"></script>
+                              <script type="text/javascript" src="{% static 'js/script2.js' %}"></script>
+
+
+                              <script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+                              <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+                              <script type="text/javascript" src="{% static 'js1/swiper.min.js' %}"></script>
+                              <script type="text/javascript" src="{% static 'js1/script.js' %}"></script>
+                              </body>
+
+</html>

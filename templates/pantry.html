@@ -1,0 +1,790 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %} Products-home {% endblock title %}
+
+{% block stylelink %}
+<!-- <link rel="stylesheet" href="{% static 'css/image-slider-category.css' %}"/> -->
+
+
+<link rel="stylesheet" href="{% static 'css1/style.css'  %}" />
+<link rel="stylesheet" href="{% static 'css1/lightslider.css'  %}">
+<script type="text/javascript" src="{% static 'js1/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/lightslider.js' %}"></script>
+{%endblock stylelink %}
+<script src="https://kit.fontawesome.com/b99e675b6e.js"> </script>
+
+{%block style%}
+
+{% endblock style %}
+
+{% block filter %}
+<div class="dropdown mx-5 my-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Filter
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <a class="dropdown-item" href="/ascending_products_home">Lowest to Highest</a>
+            <a class="dropdown-item" href="/descending_products_home">Highest to Lowest</a>
+            <form method='get'>
+                  <h6 class="card-header">Price</h6>
+                  <div class="list-group list-group-flush">
+                        <li class="list-group-item">
+                              <input type="range" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                                    min={{minMaxPrice.price__min}} id="rangeInput" oninput="maxPrice.value=this.value"
+                                    name='filter' />
+                        </li>
+                        <li class="list-group-item">
+                              Max: <input type="number" value="{{minMaxPrice.price__min}}"
+                                    max={{minMaxPrice.price__max}} min={{minMaxPrice.price__min}} class="form-control"
+                                    id="maxPrice" onkeyup="rangeInput.value=this.value" id="maxPrice" />
+                              <button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+                        </li>
+                  </div>
+      </div>
+      </form>
+</div>
+</div>
+</div>
+
+{% endblock filter %}
+
+{% block body %}
+
+<!-- home-category -->
+<br>
+<div class="detail">
+  <h6>Cooking Estentials</h6>
+    </div>
+<!--swiper slider-->
+<div class="swiper-container1">
+  <div class="swiper-wrapper1">
+        <!--slide 1-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <!-- <p class="time">New</p> -->
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/atta400x400._CB432658334_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                    <h6>atta & flour</h6>
+              </div>
+        </div>
+ <!--slide 2-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/D16090664_rice_tile_400x400._CB432658329_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                    <h6>rise</h6>
+              </div>
+        </div>
+        <!--slide 3-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/D16090664_dal_tile_400x400._CB432658329_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                    <h6>dals & pulses</h6>
+              </div>
+        </div>
+        <!--slide 4-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/D16090664_oil_tile_400x400._CB432658329_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                <h6>oils & ghee</h6>
+              </div>
+        </div>
+        <!--slide 6-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/D16090664_spices_tile_400x400._CB432658329_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                    <h6>spices</h6>
+              </div>
+        </div>
+       <!--slide 7-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/D16090664_salt_tile_400x400._CB432658329_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+<h6>salt and sugar</h6>              </div>
+        </div>
+        <!--slide 8-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/D16090664_dryfruits_tile_400x400._CB432658329_SX200_.jpg"
+                                style="width:120px;height:160px;">
+                    </div>
+                    <h6>Canned & Packaged</h6>
+              </div>
+        </div>
+        <div class="swiper-slide1">
+            <div class="slider-box1">
+                  <div class="img-box1">
+                        <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/June_2020/D16090664_others_tile_400x400._CB428249467_SX200_.jpg"
+                              style="width:120px;height:170px;">
+                  </div>
+                  <h6>Other</h6>
+            </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+<br>
+<div class="detail">
+  <h6>Packed Foods</h6>
+    </div>
+<!--swiper slider-->
+<div class="swiper-container1">
+  <div class="swiper-wrapper1">
+        <!--slide 1-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <!-- <p class="time">New</p> -->
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Packaged_food/D16090664_biscuits_tiles_400x400._CB432654209_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                    <h6>biscuits</h6>
+              </div>
+        </div>
+ <!--slide 2-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Packaged_food/D16090664_breakfast_tiles_400x400._CB432654208_SX200_.jpg"
+                                style="width:120px;height:150px;">
+                    </div>
+                    <h6>breakfast essentials</h6>
+              </div>
+        </div>
+        <!--slide 3-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Packaged_food/D16090664_breakfast_tiles_400x400._CB432654208_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                    <h6>noodles & pasta</h6>
+              </div>
+        </div>
+        <!--slide 4-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Packaged_food/D16090664_snacks_tiles_400x400._CB432654208_SX200_.jpg"
+                                style="width:120px;height:150px;">
+                    </div>
+                <h6>chips & local snacks</h6>
+              </div>
+        </div>
+        <!--slide 6-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Packaged_food/D16090664_kethcup_tiles_400x400._CB432654208_SX200_.jpg"
+                                style="width:120px;height:150px;">
+                    </div>
+                    <h6>spreads and ketchup</h6>
+              </div>
+        </div>
+       <!--slide 7-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/July_2020/ordin_tiles/bev_others._CB428732192_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+<h6>explore more</h6>              </div>
+        </div>
+        <!--slide 8-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/D16090664_dryfruits_tile_400x400._CB432658329_SX200_.jpg"
+                                style="width:120px;height:160px;">
+                    </div>
+                    <h6>Canned & Packaged</h6>
+              </div>
+        </div>
+        <div class="swiper-slide1">
+            <div class="slider-box1">
+                  <div class="img-box1">
+                        <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/June_2020/D16090664_others_tile_400x400._CB428249467_SX200_.jpg"
+                              style="width:120px;height:170px;">
+                  </div>
+                  <h6>Other</h6>
+            </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+<br>
+
+
+
+<div class="detail">
+  <h6>Beverages</h6>
+    </div>
+<!--swiper slider-->
+<div class="swiper-container1">
+  <div class="swiper-wrapper1">
+        <!--slide 1-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <!-- <p class="time">New</p> -->
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/beverages/D16090664_tea_tiles_400x400._CB432661742_SX200_.jpg"
+                                style="width:120px;height:160px;">
+                    </div>
+                    <h6>tea</h6>
+              </div>
+        </div>
+ <!--slide 2-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/beverages/D16090664_coffee_tiles_400x400._CB432661740_SX200_.jpg"
+                                style="width:120px;height:150px;">
+                    </div>
+                    <h6>coffee</h6>
+              </div>
+        </div>
+        <!--slide 3-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/beverages/D16090664_energydrnks_tiles_400x400._CB432661743_SX200_.jpg"
+                                style="width:120px;height:160px;">
+                    </div>
+                    <h6>health drinks</h6>
+              </div>
+        </div>
+        <!--slide 4-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/July_2020/ordin_tiles/bev_softdrinks._CB428732192_SX200_.jpg"
+                                style="width:120px;height:140px;">
+                    </div>
+                <h6>energy and soft drinks</h6>
+              </div>
+        </div>
+        <!--slide 6-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/July_2020/ordin_tiles/bev_juices._CB428732193_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                    <h6>juices</h6>
+              </div>
+        </div>
+       <!--slide 7-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/July_2020/ordin_tiles/bev_others._CB428732192_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+<h6>explore more</h6>              </div>
+        </div>
+        <!--slide 8-------------------------------------->
+        <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/D16090664_dryfruits_tile_400x400._CB432658329_SX200_.jpg"
+                                style="width:120px;height:160px;">
+                    </div>
+                    <h6>Canned & Packaged</h6>
+              </div>
+        </div>
+        <div class="swiper-slide1">
+            <div class="slider-box1">
+                  <div class="img-box1">
+                        <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/June_2020/D16090664_others_tile_400x400._CB428249467_SX200_.jpg"
+                              style="width:120px;height:170px;">
+                  </div>
+                  <h6>Other</h6>
+            </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+<br>
+<div class="detail">
+    <h6>cleaning and household</h6>
+      </div>
+  <!--swiper slider-->
+  <div class="swiper-container1">
+    <div class="swiper-wrapper1">
+          <!--slide 1-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <!-- <p class="time">New</p> -->
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/April20/masksanitizer_400x400._CB409461920_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                      <h6>Hand Hygiene and Masks</h6>
+                </div>
+          </div>
+   <!--slide 2-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Household_essentials/D16090664_laundry_tiles_400x400._CB432654965_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                      <h6>laundry detergent</h6>
+                </div>
+          </div>
+          <!--slide 3-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Household_essentials/D16090664_household_tiles_400x400._CB432654965_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                      <h6>household cleaning</h6>
+                </div>
+          </div>
+          <!--slide 4-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Household_essentials/D16090664_kitchen_tiles_400x400._CB432654965_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                  <h6>dishwashing</h6>
+                </div>
+          </div>
+          <!--slide 6-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Household_essentials/D16090664_freshners_tiles_400x400._CB432654970_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                      <h6>fresheners and repellents</h6>
+                </div>
+          </div>
+         <!--slide 7-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+  
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/July_2020/ordin_tiles/bev_others._CB428732192_SX200_.jpg"
+                                  style="width:120px;height:170px;">
+                      </div>
+  <h6>explore more</h6>              </div>
+          </div>
+          <!--slide 8-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/cooking_essentials/D16090664_dryfruits_tile_400x400._CB432658329_SX200_.jpg"
+                                  style="width:120px;height:160px;">
+                      </div>
+                      <h6>Canned & Packaged</h6>
+                </div>
+          </div>
+          <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/June_2020/D16090664_others_tile_400x400._CB428249467_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                    <h6>Other</h6>
+              </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  
+<!-- personal-care-slider -->
+<br>
+<div class="detail">
+    <h6>cleaning and household</h6>
+      </div>
+  <!--swiper slider-->
+  <div class="swiper-container1">
+    <div class="swiper-wrapper1">
+          <!--slide 1-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <!-- <p class="time">New</p> -->
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/personal_care/D16090664_bath_tiles_400x400._CB432664805_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                      <h6>bath and body</h6>
+                </div>
+          </div>
+   <!--slide 2-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/personal_care/D16090664_hair_tiles_400x400._CB432664804_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                      <h6>haircare</h6>
+                </div>
+          </div>
+          <!--slide 3-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/personal_care/D16090664_toothpaste_tiles_400x400._CB432664807_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                      <h6>oral care</h6>
+                </div>
+          </div>
+          <!--slide 4-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/Household_essentials/D16090664_kitchen_tiles_400x400._CB432654965_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                  <h6>dishwashing</h6>
+                </div>
+          </div>
+          <!--slide 6-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/personal_care/D16090664_makeup_tiles_400x400._CB432664801_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                      <h6>deodorants and make up</h6>
+                </div>
+          </div>
+         
+          <!--slide 8-------------------------------------->
+          <div class="swiper-slide1">
+                <div class="slider-box1">
+                      <div class="img-box1">
+                            <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/personal_care/D16090664_fem_tiles_400x400._CB432664804_SX200_.jpg"
+                                  style="width:120px;height:150px;">
+                      </div>
+                      <h6>fem hygiene and wellness</h6>
+                </div>
+          </div>
+          <div class="swiper-slide1">
+              <div class="slider-box1">
+                    <div class="img-box1">
+                          <img src="https://m.media-amazon.com/images/G/31/img17/Pantry/May2020/Top_cat_aisle_page/personal_care/D16090664_men_tiles_400x400._CB432664804_SX200_.jpg"
+                                style="width:120px;height:170px;">
+                    </div>
+                    <h6>men's grooming</h6>
+              </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+
+<!-- Best TV's slider -->
+<!--slider 1 bags------------------------------------------>
+<div class="detail">
+    <h5>Best TV's for you</h5>
+      </div>
+      <!--swiper slider-->
+      <div class="swiper-container">
+          <div class="swiper-wrapper">     
+              {% for i in prod_all %}
+              <!--slide 1-------------------------------------->
+            <div class="swiper-slide">
+            <div class="slider-box">
+      <div class="img-box">
+      <img src="{{i.img_url1}}">
+      </div>
+      <h4 class="detail my-3">{{i.product_name}}
+      <p> Price : 12000</p>
+    </h4>
+  </div>   
+  </div>
+            {%endfor %}
+            </div>         
+      </div>
+      </div>
+<!-- Best Refrigerator -->
+<!--slider 1 bags------------------------------------------>
+<div class="detail">
+    <h5>Refregerators</h5>
+      </div>
+      <!--swiper slider-->
+      <div class="swiper-container">
+          <div class="swiper-wrapper">     
+              {% for i in prod_all %}
+              <!--slide 1-------------------------------------->
+            <div class="swiper-slide">
+            <div class="slider-box">
+      <div class="img-box">
+      <img src="{{i.img_url1}}">
+      </div>
+      <h4 class="detail my-3">{{i.product_name}}
+      <p> Price : 12000</p>
+    </h4>
+  </div>   
+  </div>
+
+  {%endfor %}
+            </div>         
+      </div>
+      </div>    
+  
+<script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/script.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js1/swiper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js1/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+
+
+
+
+
+
+
+
+
+
+<div class="container my-5">
+    <div class="py-5">
+    </div>
+    <ul class="nav nav-tabs">
+       
+
+        <li class="nav-item">
+            <a class="nav-link active" href="mobile">Mobiles</a>
+        </li>
+       
+
+        <!-- <li class="nav-item   mt=3">
+            
+          </li> -->
+       
+        <li class="nav-item ml-5 mb-3">
+            <div class="dropdown ">
+
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+aria-haspopup="true" aria-expanded="false">
+Filter
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+<a class="dropdown-item" href="/ascending_prod_mobile">Latest (Last 90 Days)</a>
+{% if mobile %}
+<a class="dropdown-item" href="/ascending_prod_mobile">Low to High</a>
+<a class="dropdown-item" href="/descending_prod_mobile">High to Low</a>
+{% elif tablet %}
+<a class="dropdown-item" href="/ascending_prod_tablet">Low to High</a>
+<a class="dropdown-item" href="/descending_prod_tablet">High to Low</a>
+{% endif %}
+
+<a class="dropdown-item" href="/price_under5000">Under ₹5,000
+</a>
+<a class="dropdown-item" href="/descending_prod_tablet">₹5,000 - ₹10,000</a>
+<a class="dropdown-item" href="/ascending_prod_tablet">₹10,000 - ₹20,000</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Over ₹20,000</a>
+<form method='get'>
+    <h6 class="card-header">Price</h6>
+    <div class="list-group list-group-flush">
+        <li class="list-group-item">
+            <input type="range" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                min={{minMaxPrice.price__min}} id="rangeInput" oninput="maxPrice.value=this.value"
+                name='filter' />
+        </li>
+        <li class="list-group-item">
+            max: <input type="number" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                min={{minMaxPrice.price__min}} class="form-control" id="maxPrice"
+                onkeyup="rangeInput.value=this.value" id="maxPrice" />
+            <button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+        </li>
+    </div>
+</div>
+</form>
+</div>
+
+</li>
+
+<div class="dropdown mx-3" >
+
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+aria-haspopup="true" aria-expanded="false">
+Brand
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+<a class="dropdown-item" href="/ascending_prod_tablet">Redmi</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Samsung</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Vivo</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Realme</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Oppo</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Oneplus</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Apple</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Nokia</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Poco</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Asus</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Infinix</a>
+<a class="dropdown-item" href="/descending_prod_tablet">Techno</a>
+
+</div>
+</div>
+
+<li class="nav-item ml-5">
+<a class="nav-link text-dark" href="mobile">Under ₹5,000</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="laptop">₹5,000 - ₹10,000</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="electronics">₹10,000 - ₹20,000</a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-dark" href="fashion">Over ₹20,000</a>
+</li>
+
+</div>
+</li>
+</ul>
+</div>
+
+{% if filtered %}
+<div class="container">
+  <div class="row">
+    {% for i in filtered %}
+   <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+      {% if i.sub_category in 'laptop' or  i.sub_category in 'shoes' %}
+<a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:300px;
+          height:200px;" class="padded card-img-top" alt="..."></a>
+{% elif i.sub_category in 'tv'%}
+<a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:300px;
+          height:200px;" class="padded card-img-top" alt="..."></a>
+  {% elif i.sub_category in 'mobile' %}
+      <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:150px;
+          height:250px;" class="padded card-img-top" alt="..."></a>
+      {% else %}
+      <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:230px;height:250px;"
+          class="padded card-img-top" alt="..."></a>
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+            {{i.product_name}}</a></h5>
+        <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}}</a></p>
+        {% comment %} <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+        <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+      </div>
+    </div>
+    {%endfor%}
+    </section>
+  </div>
+</div>
+ {% comment %} <div class="container my-5">
+      <nav aria-label="...">
+          <ul class="pagination">
+              <li class="page-item ">
+                   {% if prev_filter %}  
+        <a class="page-link" href="/?filter={{filtered_price}}&page={{prev_filter}}">Previous</a>
+        {% else %}
+        {% endif %}
+      </li>
+      {% for x in page_len_filtered %} 
+      <li class="page-item"><a class="page-link" href="/?filter={{filtered_price}}&page={{x}}">{{x}}</a></li>
+      {% endfor %}
+      {% if nxt_filter %}
+      <a class="page-link" href="/?filter={{filtered_price}}&page={{nxt_filter}}">Next</a>
+      {% else %}
+      {% endif %}
+              </li>
+          </ul>
+      </nav>
+      </div> {% endcomment %}
+{% else %}
+<div class="container">
+  <div class="row">
+    {% for i in prod_all %}
+    <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+      {% if i.sub_category in 'laptop' or  i.sub_category in 'shoes' %}
+<a href="products/{{i.id}}"> <img src="{{i.img_url1}}"style="width:300px;
+          height:200px;" class="padded card-img-top" alt="..."></a>
+{% elif i.sub_category in 'tv'%}
+<a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:300px;
+          height:200px;" class="padded card-img-top" alt="..."></a>
+  {% elif i.sub_category in 'mobile' %}
+      <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:150px;
+          height:250px;" class="padded card-img-top" alt="..."></a>
+      {% else %}
+      <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:230px;height:250px;"
+          class="padded card-img-top" alt="..."></a>
+      {% endif %}
+      <div class="card-body">
+        <h6 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+            {{i.product_name}}</a></h6>
+        <p class="card-text text-center"><a class='text-dark' style="text-decoration:none;" href="products/{{i.id}}">{{i.desc}} </a></p>
+       
+        {% comment %} <h6 class="card-text text-center text-success"> Amazon price: ₹ {{i.price}}</h6>
+         <h6 class="card-text text-center text-danger"> Flipcart price: ₹ {{i.price}}</h6>
+     {% endcomment %}
+        <p class="card-text"><small class="text-muted my-3">Released {{i.pub_date}} </small></p>
+      </div>
+    </div>
+    {%endfor%}
+    </section>
+  </div>
+</div>
+<div class="container my-5 text-center">
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item ">
+        {% if prev %}
+        <a class="page-link" href="/?page={{prev}}">Previous</a>
+        {% else %}
+        {% endif %}
+      </li>
+      {% for x in page_len %}
+      
+      <li class="page-item"><a class="page-link" href="/?page={{x}}">{{x}}</a></li>
+      {% endfor %}
+      {% if nxt %}
+      <a class="page-link" href="/?page={{nxt}}">Next</a>
+      {% else %}
+      {% endif %}
+      </li>
+    </ul>
+  </nav>
+  {% endif %}
+</div>
+
+
+
+
+{% endblock body %}

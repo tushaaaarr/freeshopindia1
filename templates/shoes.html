@@ -1,0 +1,155 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<script src="https://kit.fontawesome.com/8b7c482f52.js" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style2.css">
+<style type="text/css">
+    * {
+
+        /*background-color: #A9A9A9;*/
+        font-family: Franklin Gothic Medium
+    }
+
+        {
+        % comment %
+    }
+
+    /* }
+    .card-text{
+    font-size:15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}*/
+</style>
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+ -->
+<link rel="icon" href="static/title_img.png" type="image/png">
+<title>Hey, I'm Tushar</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <div class="tushar">
+        <nav class="navbar navbar-expand-lg py-5 navbar-light bg- light">
+            <a class="navbar-brand" href="index.html">Incredible shoping ! </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto" mt=3>
+                    <li class="nav-item active">
+                        <a class="navbar-brand" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="#">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="Projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+       
+  <div class="container my-5">
+    <form class="d-flex">
+      <input class="form-control" type="search" name='new_query' id="query" placeholder="Search for products, brands and more"
+        aria-label="Search">
+      <button class="btn btn-outline-success" type="submit"> Search </button>
+    </form>
+            <section class="my-5">
+                <div class="py-5">
+                    <!-- <h2 class="text-center">Machine Learning Projects </h2> -->
+
+                </div>
+                <ul class="nav nav-tabs">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Category</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="electronics">Electronics</a>
+                            <a class="dropdown-item" href="wears">Wears</a>
+                            <a class="dropdown-item" href="shoes">Shoes</a>
+                            <a class="dropdown-item" href="beauty_health">Beauty and Health</a>
+                            <a class="dropdown-item" href=""></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Shoes</a>
+                    </li>
+                    <a class="nav-link" href= /><button type="button" class="btn btn-outline-primary ">Men</button>
+                    </a>
+                    <a class="nav-link" href=/doctor><button type="button"
+                            class="btn btn-outline-primary ">Woman</button> </a>
+        </div>
+        </li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            {% for i in shoes %}
+             <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+
+        <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:350px;
+            height:250px;"
+            class="padded card-img-top" alt="..."></a>
+       
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                    <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p>
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+    <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                    {% if prev %}
+                    <a class="page-link" href="/mobile?page={{prev}}">Previous</a>
+                    {% else %}
+                    {% comment %} <a class="page-link" href="#">Previous</a> {% endcomment %}
+                    {% endif %}
+                </li>
+                <li class="page-item"><a class="page-link" href="/wears?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="/wears?page=2">2 </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="/wears?page=3">3</a></li>
+                <li class="page-item">
+
+                    {% if nxt %}
+                    <a class="page-link" href="/wears?page={{nxt}}">Next</a>
+                    {% else %}
+                    {% comment %} <a class="page-link" href="#">Next</a> {% endcomment %}
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+</body>
+
+</html>

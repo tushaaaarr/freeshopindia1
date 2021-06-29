@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title %} Top-searched-electronics-products-headphones {% endblock title %}
+{%block body%}
+
+<div class="container my-5">
+  <div class="py-5">
+  </div>
+  <ul class="nav nav-tabs">
+<li class="nav-item">
+          <a class="nav-link active" href="headphone">{{sub_cat}}</a>
+      </li>                      
+        </li> 
+     
+        <div class="dropdown mx-5 mb-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Filter
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+<button class="btn dropdown-item" onclick="filterSelection('all')"> <a>Show all</a></button>
+<form class="btn dropdown-item" method='get'> <button value="price_1", name="{{sub_cat}}_price_range"> <a>under ₹{{price_1}}</a></button></form>
+<form class="btn dropdown-item" method='get'> <button value="price_2", name="{{sub_cat}}_price_range"><a>₹{{price_1}} - ₹{{price_2}}</a></button></form>
+<form class="btn dropdown-item" method='get'> <button value="price_3", name="{{sub_cat}}_price_range"><a>₹{{price_2}} - ₹{{price_3}}</a></button></form>
+<form class="btn dropdown-item" method='get'> <button value="price_4", name="{{sub_cat}}_price_range"><a>over ₹{{price_3}}</a></button></form>
+<form method='get'>
+      <h6 class="card-header">Price</h6>
+      <div class="list-group list-group-flush">
+          <li class="list-group-item">
+              <input type="range" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                  min={{minMaxPrice.price__min}} id="rangeInput" oninput="maxPrice.value=this.value"
+                  name='filter' />
+
+          </li>
+          <li class="list-group-item">
+              Max: <input type="number" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                  min={{minMaxPrice.price__min}} class="form-control" id="maxPrice"
+                  onkeyup="rangeInput.value=this.value" id="maxPrice" />
+              <button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+          </li>
+      </div>
+</div>
+</form></div>
+</li>
+
+</div>
+</li>
+</ul>
+</div>
+<div class="container my-5">
+<div id="myBtnContainer">
+      <form class="btn mx-3" method='get'> <button value="price_1", name="{{category}}_price_range"style="font-size: 13px;"> under ₹{{price_1}}</button></form>
+      <form class="btn mx-3" method='get'> <button value="price_2", name="{{category}}_price_range"style="font-size: 13px;">₹{{price_1}} - ₹{{price_2}}</button></form>
+      <form class="btn mx-3" method='get'> <button value="price_3", name="{{category}}_price_range"style="font-size: 13px;">₹{{price_2}} - ₹{{price_3}}</button></form>
+      <form class="btn mx-3" method='get'> <button value="price_4", name="{{category}}_price_range"style="font-size: 13px;">Over ₹{{price_3}}</button></form>
+
+</div>
+</div>
+
+{% if price_range_filter %}
+<div class="filter_range" id ="filter_range" style="display: block;">
+<div class="container my-5">
+<div class="row">
+      {% for i in price_range_filter %}
+      <div class="card mx-auto my-2 p-2 align-items-center" style="width: 20rem; height:25rem;">
+            <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:150px;height:150px;"></a>
+            <div class="card-body">
+                  <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                              href="products/{{i.id}}">
+                              {{i.product_name}}</a></p>
+                  <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark'
+                              href="products/{{i.id}}">{{i.desc}} </a></p>
+                  <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                  <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+            </div>
+      </div>
+      {%endfor%}
+</div>
+</div>
+</div> 
+
+<div class="container my-5">
+<nav aria-label="...">
+      <ul class="pagination">
+            <li class="page-item ">
+                  {% if prev_filter %}
+                  <a class="page-link" href="/{{category}}?filter={{filtered_price}}&page={{prev_filter}}">Previous</a>
+                  {% else %}
+                  {% endif %}
+            </li>
+            {% for x in page_len_filter %}
+            <li class="page-item"><a class="page-link" href="/{{category}}?filter={{filtered_price}}&page={{x}}">{{x}}</a></li>
+            {% endfor %}
+            {% if nxt_filter %}
+            <a class="page-link" href="/{{category}}?filter={{filtered_price}}&page={{nxt_filter}}">Next</a>
+            {% else %}
+            {% endif %}
+            </li>
+      </ul>
+</nav>
+</div>
+
+{%else%}
+<div class="filterDiv all">
+<div class="container my-5">
+      <div class="row">
+            {% for i in product %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 20rem; height:25rem;">
+                  <a href="products/{{i.id}}"> <img src="{{i.img_url1}}" style="width:{{img_width}}px;height:{{img_height}}px;"></a>
+                  <div class="card-body my-3">
+                        <p class="card-title text-center"> <a style="text-decoration:none;" class='text-dark'
+                                    href="products/{{i.id}}">
+                                    {{i.product_name}}</a></p>
+                        <p class="card-text text-center"><a style="text-decoration:none;" class='text-da    rk'
+                                    href="products/{{i.id}}">{{i.desc}} </a></p>
+                        <!-- <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> -->
+                        <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                  </div>
+            </div>
+            {%endfor%}
+      </div>
+</div>
+{%if value is none%}    
+<div class="container my-5">
+<nav aria-label="...">
+      <ul class="pagination">
+            <li class="page-item ">
+                  {% if prev %}
+                  <a class="page-link" href="/{{sub_cat}}?page={{prev}}">Previous</a>
+                  {% else %}
+                  {% endif %}
+            </li>
+            {% for x in page_len %}
+            <li class="page-item"><a class="page-link" href="/{{sub_cat}}?page={{x}}">{{x}}</a></li>
+            {% endfor %}
+            {% if nxt %}
+            <a class="page-link" href="/{{sub_cat}}?page={{nxt}}">Next</a>
+            {% else %}
+            {% endif %}
+            </li>
+      </ul>
+</nav>
+</div>
+{% else %}
+
+<div class="container my-5">
+<nav aria-label="...">
+      <ul class="pagination">
+            <li class="page-item ">
+                  {% if prev %} 
+                  <a class="page-link" href="{{sub_cat}}?{{sub_cat}}_price_range={{value}}&page={{prev}}">Previous</a>
+                  {% else %}
+                  {% endif %}
+            </li>
+            {% for x in page_len %}
+            <li class="page-item"><a class="page-link" href="/{{sub_cat}}?{{sub_cat}}_price_range={{value}}&page={{x}}">{{x}}</a></li>
+            {% endfor %}
+            {% if nxt %}
+            <a class="page-link" href="/{{sub_cat}}?{{sub_cat}}_price_range={{value}}&page={{nxt}}">Next</a>
+            {% else %}
+            {% endif %}
+            </li>
+      </ul>
+</nav>
+</div>
+
+{%endif%}
+</div>
+</div>
+
+
+{%endif%}
+
+
+
+{% endblock body %}

@@ -1,0 +1,804 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %} Home {% endblock title %}
+{% block filter %}
+ <div class="dropdown mx-5">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Filter
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            {% if electronics %}
+
+                <a class="dropdown-item" href="/ascending_products_electronics">Lowest to Highest</a>
+                <a class="dropdown-item" href="/descending_products_electronics">Highest to Lowest</a>
+{% elif smart_watches%}
+                <a class="dropdown-item" href="/ascending_prod_smart_watches">Lowest to Highest</a>
+                <a class="dropdown-item" href="/descending_prod_smart_watches">Highest to Lowest</a>
+
+{% elif camera %}
+                <a class="dropdown-item" href="/ascending_prod_camera">Lowest to Highest</a>
+                <a class="dropdown-item" href="/descending_prod_camera">Highest to Lowest</a>
+                {% endif %}
+                <form method='get'>
+                    <h6 class="card-header">Price</h6>
+                    <div class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <input type="range" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                                min={{minMaxPrice.price__min}} id="rangeInput" oninput="maxPrice.value=this.value"
+                                name='filter' />
+
+                        </li>
+                        <li class="list-group-item">
+                            Max: <input type="number" value="{{minMaxPrice.price__min}}" max={{minMaxPrice.price__max}}
+                                min={{minMaxPrice.price__min}} class="form-control" id="maxPrice"
+                                onkeyup="rangeInput.value=this.value" id="maxPrice" />
+                            <button id="priceFilterBtn" class="btn btn-info btn-sm mt-1">Filter</button>
+                        </li>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    {% endblock filter %}
+    {% block body %}
+            <section class="my-5">
+                <div class="py-5">
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Category</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="electronics">Electronics</a>
+                            <a class="dropdown-item" href="wears">Wears</a>
+                            <a class="dropdown-item" href="shoes">Shoes</a>
+                            <a class="dropdown-item" href="beauty_health">Beauty and Health</a>
+                            <a class="dropdown-item" href=""></a>
+                    </li>
+                    {% if mobile %}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="mobile">Mobiles</a>
+                    </li>
+                    {% elif tablet %}
+                      <li class="nav-item">
+                        <a class="nav-link active" href="tablets">Tablets</a>
+                    </li>
+                    {% elif smart_watches %}
+                     <li class="nav-item">
+                        <a class="nav-link active" href="smart_watches">Smart Watches</a>
+                    </li>
+                    {% elif headphone %}
+                     <li class="nav-item">
+                        <a class="nav-link active" href="headphone">Headphone</a>
+                    </li>
+                    {% elif camera %}
+                     <li class="nav-item">
+                        <a class="nav-link active" href="camera">Camera</a>
+                    </li>
+                    {% elif gaming %}
+                     <li class="nav-item">
+                        <a class="nav-link active" href="gaming">Gaming</a>
+                    </li>
+                    {% elif electronic_appliances %}
+                     <li class="nav-item">
+                        <a class="nav-link active" href="electronic_appliances">Electronic Appliances</a>
+                    </li>
+                    {% elif alexa_and_echo %}
+                     <li class="nav-item">
+                        <a class="nav-link active" href="alexa_and_echo">Alexa and Echo</a>
+                    </li>
+                    {% elif computer_components %}
+                     <li class="nav-item">
+                        <a class="nav-link active" href="computer_components">Computer Components</a>
+                    </li>
+                    {% endif %}
+                      <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">More Electronics</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="tv">Television</a>
+                        <a class="dropdown-item" href="tablets">Tablets</a>
+                        <a class="dropdown-item" href="smart_watches">Smart
+                    Watches</a>
+                        <a class="dropdown-item" href="camera">Cameras</a>
+                        <a class="dropdown-item" href="headphone">Headphoes</button> </a>
+                        <a class="dropdown-item" href="gaming">Gaming</a>
+                         <a class="dropdown-item" href="electronic_appliances">Electronics Appliances</a>
+                          <a class="dropdown-item" href="alexa_and_echo">Alexa and Echo</a>
+                           <a class="dropdown-item" href="computer_components">Computer
+                        Components</a>
+                            <a class="dropdown-item" href="">Other</a>
+     </li>
+    </div>
+        </div>
+        </li>
+        </ul>
+    </div>
+
+{% if smart_watches %}
+{% if filtered_smart_watches %}
+  <div class="container">
+        <div class="row">
+            {% for i in filtered_smart_watches %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+    <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+          <a class="page-link" href="/smart_watches?filter={{filtered_price}}&page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="smart_watches?filter={{filtered_price}}&page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/smart_watches?filter={{filtered_price}}&page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+{% else %}
+  <div class="container">
+        <div class="row">
+            {% for i in smart_watches %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+            </section>
+        </div>
+    </div>
+    <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+          <a class="page-link" href="/smart_watches?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/smart_watches?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/smart_watches?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+{% endif %}
+
+
+
+{% elif camera %}
+{% if filtered_camera %}
+    <div class="container">
+        <div class="row">
+            {% for i in filtered_camera %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+    <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+          <a class="page-link" href="/camera?filter={{filtered_price}}&page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/camera?filter={{filtered_price}}&page{{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/camera?filter={{filtered_price}}&page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+{% else %}
+
+    <div class="container">
+        <div class="row">
+            {% for i in camera %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+    <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+          <a class="page-link" href="/camera?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/camera?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/camera?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+{% endif %}
+
+{% elif headphone%}
+{% if filtered_headphone %}
+
+<div class="container">
+        <div class="row">
+            {% for i in filtered_headphone %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+          <a class="page-link" href="/headphone?filter={{filtered_price}}&page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/headphone?filter={{filtered_price}}&page{{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/headphone?filter={{filtered_price}}&page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+
+{% else %}
+
+<div class="container">
+        <div class="row">
+            {% for i in headphone %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+         <a class="page-link" href="/headphone?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/headphone?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/headphone?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+{% endif %}
+
+
+{% elif gaming%}
+{% if filtered_gaming %}
+
+<div class="container">
+        <div class="row">
+            {% for i in filtered_gaming %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+          <a class="page-link" href="/gaming?filter={{filtered_price}}&page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/gaming?filter={{filtered_price}}&page{{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/gaming?filter={{filtered_price}}&page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+{% else %}
+
+<div class="container">
+        <div class="row">
+            {% for i in gaming %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+         <a class="page-link" href="/gaming?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/gaming?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/gaming?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+{% endif %}
+
+{% elif electronic_appliances%}
+{% if filtered_electronic_appliances %}
+<div class="container">
+        <div class="row">
+            {% for i in filtered_electronic_appliances %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+          <a class="page-link" href="/electronic_appliances?filter={{filtered_price}}&page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/electronic_appliances?filter={{filtered_price}}&page{{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/electronic_appliances?filter={{filtered_price}}&page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+
+
+
+
+{% else %}
+<div class="container">
+        <div class="row">
+            {% for i in electronic_appliances %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+         <a class="page-link" href="/electronic_appliances?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/electronic_appliances?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/electronic_appliances?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+
+
+
+{% endif %}
+
+
+{% elif alexa_and_echo%}
+{% if filtered_alexa_and_echo %}
+
+<div class="container">
+        <div class="row">
+            {% for i in filtered_alexa_and_echo %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+          <a class="page-link" href="/filtered_alexa_and_echo?filter={{filtered_price}}&page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/filtered_alexa_and_echo?filter={{filtered_price}}&page{{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/filtered_alexa_and_echo?filter={{filtered_price}}&page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+
+
+{% else %}
+
+<div class="container">
+        <div class="row">
+            {% for i in alexa_and_echo %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %} <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %} 
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+         <a class="page-link" href="/alexa_and_echo?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/alexa_and_echo?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/alexa_and_echo?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+{% endif %}
+
+{% elif computer_components%}
+{% if filtered_computer_components %}
+<div class="container">
+        <div class="row">
+            {% for i in filtered_computer_components %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %}  <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %}
+                    <p class="card-text"><small class="text-muted">Released {{i.pub_date}} </small></p>
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+          <a class="page-link" href="/filtered_computer_components?filter={{filtered_price}}&page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/filtered_computer_components?filter={{filtered_price}}&page{{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/filtered_computer_components?filter={{filtered_price}}&page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+{% else %}
+
+<div class="container">
+        <div class="row">
+            {% for i in computer_components %}
+            <div class="card mx-auto my-2 p-2 align-items-center" style="width: 25rem; height:32rem;">
+                {% comment %} src='/media/{{i.image}}' {% endcomment %}
+                <a href="products/{{i.id}}"> <img src="{{i.img_url1}}"  style="width:250px;height:250px;"></a>
+                <div class="card-body">
+                    <h5 class="card-title text-center"> <a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">
+                            {{i.product_name}}</a></h5>
+                    <p class="card-text text-center"><a style="text-decoration:none;" class='text-dark' href="products/{{i.id}}">{{i.desc}} </a></p>
+                   {%comment %} <p class="card-text text-center text-success"> ₹{{i.price}} Save ₹2,000</p> {% endcomment %} 
+
+                    {% comment %} <a href="products/{{mob.id}}"><button id="qv{{mob.id}}"
+                            class="btn btn-primary cart">Quick View</button></a> {% endcomment %}
+                </div>
+            </div>
+            {%endfor%}
+
+            </section>
+        </div>
+    </div>
+ <div class="container my-5">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item ">
+                     {% if prev %}
+         <a class="page-link" href="/computer_components?page={{prev}}">Previous</a>
+          {% else %}
+          {% endif %}
+        </li>
+        {% for x in page_len %}
+        <li class="page-item"><a class="page-link" href="/computer_components?page={{x}}">{{x}}</a></li>
+        {% endfor %}
+        {% if nxt %}
+        <a class="page-link" href="/computer_components?page={{nxt}}">Next</a>
+        {% else %}
+        {% endif %}
+                </li>
+            </ul>
+        </nav>
+        </div>
+        </div>
+
+
+{% endif %}
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+{% endblock body %}
